@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `bicycles`.`Members` (
   `Member_Status` TINYINT(1) NOT NULL,
   `Member_Payment_Method_ID` VARCHAR(50) NOT NULL,
   `Age` INT NOT NULL,
+  CONSTRAINT CheckAge CHECK(`Age` BETWEEN 14 and 70),
   PRIMARY KEY (`Member_ID`),
   UNIQUE INDEX `Member_ID_UNIQUE` (`Member_ID` ASC));
 
@@ -104,6 +105,7 @@ CREATE TABLE IF NOT EXISTS `bicycles`.`Visitors` (
   `Visitor_Address` VARCHAR(150) NULL DEFAULT NULL,
   `Visitor_Payment_Method_ID` VARCHAR(50) NOT NULL,
   `Age` INT NOT NULL,
+  CONSTRAINT CheckAge CHECK (`Age` BETWEEN 14 and 70),
   PRIMARY KEY (`Visitor_ID`),
   UNIQUE INDEX `Visitor_ID_UNIQUE` (`Visitor_ID` ASC),
   INDEX `Visitor_Payment_Method_ID1_idx` (`Visitor_Payment_Method_ID` ASC),
